@@ -7,17 +7,23 @@ Version: %{version}
 Release: %{release}
 Summary: Five in a row game for X
 BuildRoot: %{_tmppath}/%{name}-buildroot
-Source: %{name}-%{version}.tar.bz2
+Source: http://www.igoweb.org/~wms/comp/pente/%{name}-%{version}.tar.gz
 Source2: %name-icons.tar.bz2
-Patch: pente-makefile.patch.bz2
-Requires: x11-server-xorg
-BuildRequires: XFree86-devel
+Patch: pente-makefile.patch
+BuildRequires: libx11-devel ncurses-devel
 Group: Games/Boards
 License: GPL
 URL: http://www.igoweb.org/~wms/comp/pente
 
 %description
-Five in a row game for X
+Pente is the English name for the Asian game ni-nuki, which itself 
+is a version of the game go-moku. The game is a variant of the well 
+known five in a row. Placing five stones in a row is one way to win, 
+the other is to capture five pairs of the opponents stones.
+
+Pente can run in three different modes: X, curses or text. You can 
+play against the computer or another human, and there is also support 
+for playing over a network. 
 
 %prep
 rm -rf $RPM_BUILD_ROOT
@@ -30,37 +36,25 @@ rm -rf $RPM_BUILD_ROOT
 %make
 
 %install
-mkdir -p $RPM_BUILD_ROOT/usr/games
+mkdir -p $RPM_BUILD_ROOT/%{_gamesbindir}
 mkdir -p $RPM_BUILD_ROOT%{_mandir}/man6
-mkdir -p $RPM_BUILD_ROOT%{_iconsdir}{,/mini,/large}
+mkdir -p $RPM_BUILD_ROOT%{_iconsdir}/hicolor/{16x16,32x32,48x48}/apps
 %makeinstall
 tar xvjf %{SOURCE2} 
-cp %{name}-16.png $RPM_BUILD_ROOT/%_miconsdir/%name.png
-cp %{name}-32.png $RPM_BUILD_ROOT/%_iconsdir/%name.png
-cp %{name}-48.png $RPM_BUILD_ROOT/%_liconsdir/%name.png
-
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat > $RPM_BUILD_ROOT%{_menudir}/%name <<EOF
-?package(%name): \
- needs="x11" \
- section="More Applications/Games/Boards" \
- title="Pente" \
- longtitle="Five In a Row Game" \
- command="/usr/games/pente" \
- icon="pente.png" \
- xdg="true"
-EOF
+cp %{name}-16.png $RPM_BUILD_ROOT/%_iconsdir/hicolor/16x16/apps/%name.png
+cp %{name}-32.png $RPM_BUILD_ROOT/%_iconsdir/hicolor/32x32/apps/%name.png
+cp %{name}-48.png $RPM_BUILD_ROOT/%_iconsdir/hicolor/48x48/apps/%name.png
 
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=Pente
-Comment=Five In a Row Game
-Exec=/usr/games/pente
-Icon=pente.png
+Comment=Five in a row game
+Exec=%{_gamesbindir}/pente
+Icon=%{name}
 Terminal=false
 Type=Application
-Categories=GTK;X-MandrivaLinux-MoreApplications-Games-Boards;Game;BoardGame;
+Categories=GTK;Game;BoardGame;
 Encoding=UTF-8
 EOF
 
@@ -69,17 +63,18 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %update_menus
+%update_icon_cache hicolor
 
 %postun
 %clean_menus
+%clean_icon_cache hicolor
 
 %files
 %defattr(,-, root, root)
 %doc README
 /usr/games/%name
 %{_mandir}/man6/*
-%{_menudir}/%name
 %{_datadir}/applications/*.desktop
-%{_iconsdir}/%name.png
-%{_liconsdir}/%name.png
-%{_miconsdir}/%name.png
+%{_iconsdir}/hicolor/16x16/apps/%name.png
+%{_iconsdir}/hicolor/32x32/apps/%name.png
+%{_iconsdir}/hicolor/48x48/apps/%name.png
