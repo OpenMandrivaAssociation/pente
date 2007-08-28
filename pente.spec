@@ -55,7 +55,6 @@ Icon=%{name}
 Terminal=false
 Type=Application
 Categories=GTK;Game;BoardGame;
-Encoding=UTF-8
 EOF
 
 %clean
