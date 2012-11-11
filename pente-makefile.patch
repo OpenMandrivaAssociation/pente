@@ -1,0 +1,21 @@
+--- pente-2.2.5.orig/Makefile.in	2000-02-01 14:19:47.000000000 -0600
++++ pente-2.2.5/Makefile.in	2007-07-10 23:42:12.000000000 -0500
+@@ -34,8 +34,8 @@
+ # Change these values to tell make where to put the binary and the man page
+ #   when it's done compiling.
+ PREFIX = /usr/games
+-BINDIR = $(PREFIX)/bin
+-MANDIR = $(PREFIX)/man
++BINDIR = $(RPM_BUILD_ROOT)$(PREFIX)
++MANDIR = $(RPM_BUILD_ROOT)/usr/share/man
+ 
+ # This should be set to the directory containing this Makefile.
+ BUILD_DIR = @BUILD_DIR@
+@@ -57,6 +57,7 @@
+ 	$(CC) -o pente-$(SYSTEM_TYPE) $(OBJS) $(LFLAGS)
+ 	rm -f pente
+ 	ln -s pente-$(SYSTEM_TYPE) pente
++	strip pente
+ 
+ clean:
+ 	rm -f $(OBJS) pente-$(SYSTEM_TYPE) wmslib/libwms-$(SYSTEM_TYPE).a wmslib/obj-$(SYSTEM_TYPE)/*.o
