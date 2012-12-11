@@ -82,3 +82,79 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/16x16/apps/%name.png
 %{_iconsdir}/hicolor/32x32/apps/%name.png
 %{_iconsdir}/hicolor/48x48/apps/%name.png
+
+
+%changelog
+* Mon Sep 14 2009 Thierry Vignaud <tvignaud@mandriva.com> 2.2.5-6mdv2010.0
++ Revision: 440527
+- rebuild
+
+* Mon Apr 06 2009 Funda Wang <fundawang@mandriva.org> 2.2.5-5mdv2009.1
++ Revision: 364390
+- use correct icons
+
+* Mon Apr 06 2009 Funda Wang <fundawang@mandriva.org> 2.2.5-4mdv2009.1
++ Revision: 364339
+- rebuild
+
+  + Thierry Vignaud <tvignaud@mandriva.com>
+    - rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+* Fri Dec 21 2007 Olivier Blin <oblin@mandriva.com> 2.2.5-1mdv2008.1
++ Revision: 136656
+- restore BuildRoot
+
+  + Thierry Vignaud <tvignaud@mandriva.com>
+    - kill re-definition of %%buildroot on Pixel's request
+    - kill desktop-file-validate's 'warning: key "Encoding" in group "Desktop Entry" is deprecated'
+
+* Fri Jul 13 2007 Adam Williamson <awilliamson@mandriva.org> 2.2.5-1mdv2008.0
++ Revision: 51696
+- drop debian menu and X-Mandriva XDG menu category
+- use fd.o icon spec
+- use gamesbindir macro, don't hardcode /usr/games
+- take better description from Debian (thanks)
+- update BuildRequires
+- bunzip2 patch
+- revive package (requested by several users on forum)
+- Import pente
+
+
+
+* Wed Jul 11 2007 R. James  <rjames@mandriva.com> 2.2.5-1mdv2007.1
+- updated to 2.2.5
+- xdg menu with icons
+
+* Thu Aug 23 2001 Lenny Cartier  <lenny@mandrakesoft.com> 2.2.2-2mdk
+- rebuild
+
+* Wed Jan 24 2001 Lenny Cartier  <lenny@mandrakesoft.com> 2.2.2-1mdk
+- updated to 2.2.2
+
+* Tue Sep 11 2000 Lenny Cartier  <lenny@mandrakesoft.com> 2.2.0-2mdk
+- BM
+- macros
+- fix patch file 
+
+* Mon Apr 10 2000 Lenny Cartier <lenny@mandrakesoft.com> 2.2.0-1mdk
+- clean spec
+- bzip archives
+
+* Fri Jan  1 1999 Andrea Borgia <borgia@students.cs.unibo.it>
+- added "group" to .../wmconfig/pente
+
+* Tue Nov 17 1998 Andrea Borgia <borgia@students.cs.unibo.it>
+- changed email address
+- used defattr
+
+* Mon Jul 20 1998 Andrea Borgia <borgia@cs.unibo.it>
+- updated spec file syntax
+
+* Thu Feb 19 1998 Andrea Borgia <borgia@cs.unibo.it>
+- added wmconfig entry
+
+* Fri Jan 30 1998 Andrea Borgia <borgia@cs.unibo.it>
+- rebuilt for glibc
