@@ -1,12 +1,11 @@
 %define name pente
 %define version 2.2.5
-%define release %mkrel 6
+%define release  7
 
 Name: %{name}
 Version: %{version}
 Release: %{release}
 Summary: Five in a row game for X
-BuildRoot: %{_tmppath}/%{name}-buildroot
 Source: http://www.igoweb.org/~wms/comp/pente/%{name}-%{version}.tar.gz
 Source2: %name-icons.tar.bz2
 Patch: pente-makefile.patch
