@@ -10,7 +10,7 @@ BuildRoot: %{_tmppath}/%{name}-buildroot
 Source: http://www.igoweb.org/~wms/comp/pente/%{name}-%{version}.tar.gz
 Source2: %name-icons.tar.bz2
 Patch: pente-makefile.patch
-BuildRequires: libx11-devel ncurses-devel
+BuildRequires: pkgconfig(x11) ncurses-devel
 Group: Games/Boards
 License: GPL
 URL: http://www.igoweb.org/~wms/comp/pente
