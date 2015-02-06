@@ -2,7 +2,7 @@
 
 Name:    pente
 Version: 2.2.5
-Release: 8
+Release: 9
 Summary: Five in a row game for X
 Source:  http://www.igoweb.org/~wms/comp/pente/%{name}-%{version}.tar.gz
 Source2: %{name}-icons.tar.bz2
