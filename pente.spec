@@ -9,7 +9,7 @@ Source2: %{name}-icons.tar.bz2
 Patch:   pente-makefile.patch
 Group:   Games/Boards
 License: GPL
-URL:     http://www.igoweb.org/~wms/comp/pente
+URL:     https://www.igoweb.org/~wms/comp/pente
 BuildRequires: pkgconfig(x11) 
 BuildRequires: ncurses-devel
 
