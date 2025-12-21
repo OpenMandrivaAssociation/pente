@@ -10,6 +10,11 @@ Patch:   pente-makefile.patch
 Group:   Games/Boards
 License: GPL
 URL:     https://www.igoweb.org/~wms/comp/pente
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: pkgconfig(x11) 
 BuildRequires: ncurses-devel
 
